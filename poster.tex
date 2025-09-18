@@ -20,6 +20,8 @@
 \definecolor{darkgray}{RGB}{64,64,64}
 \definecolor{lightgray}{RGB}{240,240,240}
 
+%%  - \tiny < \scriptsize < \footnotesize < \small < \normalsize < \large < \Large < \LARGE < \huge < \Huge < \HUGE
+
 % Configuration du poster
 \begin{document}
 \begin{poster}{
@@ -62,7 +64,7 @@
   \includegraphics[width=0.8\textwidth]{assets/youre-the-product.jpg}
   \end{center}
   
-  \textbf{\huge Votre vie privée : un droit fondamental}
+  \textbf{\Large Votre vie privée : un droit fondamental}
   
   \textit{\Large Constitution Fédérale Suisse, Article 13 :}
   
@@ -102,39 +104,44 @@
 
 \headerbox{Communications en Ligne}{name=communication,column=1,row=0}{
   \noindent
-  \begin{minipage}[b]{0.7\linewidth}
+  \begin{minipage}[m]{0.7\linewidth}
     \textbf{\color{c4dtblue}X $\rightarrow$ Mastodon}
     \begin{itemize}
       \item Pas d'algorithme manipulateur
       \item Données non vendues aux annonceurs
       \item Contrôle total de votre fil d'actualité
     \end{itemize}
-  \end{minipage}%
-  \begin{minipage}[t]{0.28\linewidth}
-    \hspace{0.5em}
-    \qrcode[height=2cm]{https://mastodon.social}
+  \end{minipage}
+  \begin{minipage}[t]{0.25\linewidth}
+    \centering
+    \qrcode[height=2cm]{https://mastodon.social}\\
+    \small{social.epfl.ch}
   \end{minipage}
 
   \vspace{0.5em}
 
   \noindent
-  \begin{minipage}[t]{0.28\linewidth}
-    \qrcode[height=2cm]{URL_HERE}
-  \end{minipage}%
-  \begin{minipage}[t]{0.7\linewidth}
-    \hspace{0.5em}
-    \textbf{\color{c4dtblue}WhatsApp $\rightarrow$ Signal}
-    \begin{itemize}
-      \item Métadonnées minimales collectées
-      \item Chiffrement vérifié par des experts
-      \item Pas de liens avec Meta/Facebook
-    \end{itemize}
-  \end{minipage}
+  \colorbox{lightgray}{
+    \begin{minipage}[t]{0.25\linewidth}
+      \centering
+      \qrcode[height=2cm]{https://signal.org}\\
+      \small{signal.org}
+    \end{minipage}%
+    \begin{minipage}[m]{0.7\linewidth}
+      \hspace{0.5em}
+      \textbf{\color{c4dtblue}WhatsApp $\rightarrow$ Signal}
+      \begin{itemize}
+        \item Métadonnées minimales collectées
+        \item Chiffrement vérifié par des experts
+        \item Pas de liens avec Meta/Facebook
+      \end{itemize}
+    \end{minipage}
+  }
 
   \vspace{0.5em}
 
   \noindent
-  \begin{minipage}[t]{0.7\linewidth}
+  \begin{minipage}[m]{0.7\linewidth}
     \textbf{\color{c4dtblue}Slack $\rightarrow$ Matrix}
     \begin{itemize}
       \item Protocole décentralisé et ouvert
@@ -142,15 +149,16 @@
       \item Pas d'analyse de vos conversations
     \end{itemize}
   \end{minipage}%
-  \begin{minipage}[t]{0.28\linewidth}
-    \hspace{0.5em}
-    \qrcode[height=2cm]{URL_HERE}
+  \begin{minipage}[t]{0.25\linewidth}
+    \centering
+    \qrcode[height=2cm]{https://app.element.io}\\
+    \small{matrix.epfl.ch}
   \end{minipage}
 }
 
 \headerbox{Bureautique}{name=office,column=1,below=communication}{
   \noindent
-  \begin{minipage}[t]{0.7\linewidth}
+  \begin{minipage}[m]{0.7\linewidth}
     \textbf{\color{c4dtblue}MS365 $\rightarrow$ K-Drive}
     \begin{itemize}
       \item Données stockées en Suisse (lois strictes)
@@ -158,31 +166,35 @@
       \item Chiffrement de bout-en-bout disponible
     \end{itemize}
   \end{minipage}%
-  \begin{minipage}[t]{0.28\linewidth}
-    \hspace{0.5em}
-    \qrcode[height=2cm]{URL_HERE}
+  \begin{minipage}[t]{0.25\linewidth}
+    \centering
+    \qrcode[height=2cm]{https://kdrive.infomaniak.com}\\
+    \small{kdrive.infomaniak.com}
   \end{minipage}
 
   \vspace{0.5em}
 
   \noindent
-  \begin{minipage}[t]{0.28\linewidth}
-    \qrcode[height=2cm]{URL_HERE}
-  \end{minipage}%
-  \begin{minipage}[t]{0.7\linewidth}
-    \hspace{0.5em}
-    \textbf{\color{c4dtblue}Outlook $\rightarrow$ Thunderbird}
-    \begin{itemize}
-      \item Aucune collecte de métadonnées
-      \item Open source = transparence totale
-      \item Fonctionne avec tous les fournisseurs email
-    \end{itemize}
-  \end{minipage}
+  \colorbox{lightgray}{
+    \begin{minipage}[t]{0.25\linewidth}
+      \centering
+      \qrcode[height=2cm]{https://thunderbird.net}\\
+      \small{thunderbird.net}
+    \end{minipage}%
+    \begin{minipage}[m]{0.7\linewidth}
+      \textbf{\color{c4dtblue}Outlook $\rightarrow$ Thunderbird}
+      \begin{itemize}
+        \item Aucune collecte de métadonnées
+        \item Open source = transparence totale
+        \item Fonctionne avec tous les fournisseurs email
+      \end{itemize}
+    \end{minipage}
+  }
 
   \vspace{0.5em}
 
   \noindent
-  \begin{minipage}[t]{0.7\linewidth}
+  \begin{minipage}[m]{0.7\linewidth}
     \textbf{\color{c4dtblue}Chrome $\rightarrow$ Firefox}
     \begin{itemize}
       \item Bloque le tracking par défaut
@@ -190,51 +202,63 @@
       \item Extensions anti-pub plus efficaces
     \end{itemize}
   \end{minipage}%
-  \begin{minipage}[t]{0.28\linewidth}
-    \hspace{0.5em}
-    \qrcode[height=2cm]{URL_HERE}
+  \begin{minipage}[t]{0.25\linewidth}
+    \centering
+    \qrcode[height=2cm]{https://firefox.com}\\
+    \small{firefox.com}
   \end{minipage}
 }
 
 \headerbox{Sécurité}{name=security,column=1,below=office}{
   \noindent
-  \begin{minipage}[t]{0.7\linewidth}
+  \begin{minipage}[m]{0.7\linewidth}
     \textbf{\color{c4dtblue}Gestion de mots de passe}
     \begin{itemize}
-      \item 
+      \item Mots de passe uniques et forts automatiques
+      \item Chiffrement local de vos données
+      \item Plus besoin de retenir tous vos mots de passe
     \end{itemize}
   \end{minipage}%
-  \begin{minipage}[t]{0.28\linewidth}
-    \hspace{0.5em}
-    \qrcode[height=2cm]{URL_HERE}
+  \begin{minipage}[t]{0.25\linewidth}
+    \centering
+    \qrcode[height=2cm]{https://bitwarden.com}\\
+    \small{bitwarden.com}
   \end{minipage}
 
   \vspace{0.5em}
 
   \noindent
-  \begin{minipage}[t]{0.28\linewidth}
-    \qrcode[height=2cm]{URL_HERE}
-  \end{minipage}%
-  \begin{minipage}[t]{0.7\linewidth}
-    \hspace{0.5em}
-    \textbf{\color{c4dtblue}Non aux pubs avec uBlock}
-    \begin{itemize}
-      \item 
-    \end{itemize}
-  \end{minipage}
+  \colorbox{lightgray}{
+    \begin{minipage}[t]{0.25\linewidth}
+      \centering
+      \qrcode[height=2cm]{https://ublockorigin.com}\\
+      \small{ublockorigin.com}
+    \end{minipage}%
+    \begin{minipage}[m]{0.7\linewidth}
+      \textbf{\color{c4dtblue}Non aux pubs avec uBlock}
+      \begin{itemize}
+        \item Bloque trackers et publicités invasives
+        \item Protection contre sites malveillants
+        \item Navigation plus rapide et fluide
+      \end{itemize}
+    \end{minipage}
+  }
 
   \vspace{0.5em}
 
   \noindent
-  \begin{minipage}[t]{0.7\linewidth}
+  \begin{minipage}[m]{0.7\linewidth}
     \textbf{\color{c4dtblue}Consent-o-matic}
     \begin{itemize}
-      \item 
+      \item Refuse automatiquement les cookies
+      \item Évite le tracking publicitaire
+      \item Plus besoin de cliquer sur chaque popup
     \end{itemize}
   \end{minipage}%
-  \begin{minipage}[t]{0.28\linewidth}
-    \hspace{0.5em}
-    \qrcode[height=2cm]{URL_HERE}
+  \begin{minipage}[t]{0.25\linewidth}
+    \centering
+    \qrcode[height=2cm]{https://consentomatic.au.dk}\\
+    \small{consentomatic.au.dk}
   \end{minipage}
 }
 
@@ -354,10 +378,7 @@
 %   \end{itemize}
 % }
 
-\headerbox{Venez discuter avec nous !}{name=contact,column=0,span=2,above=bottom}{
-  \begin{multicols}{3}
-  \textbf{\Large Nous sommes là pour vous aider}
-  
+\headerbox{Venez discuter avec nous !}{name=contact,column=0,above=bottom}{
   \textbf{\color{c4dtblue}Qui sommes-nous ?}
   \begin{itemize}
   \item \textbf{C4DT} - Centre pour la Confiance Numérique
@@ -365,8 +386,8 @@
   \item \textbf{digiges} - Partenaire pour la transition numérique
   \end{itemize}
   
-  \columnbreak
-  
+  \vspace{0.5em}
+
   \textbf{\color{c4dtblue}Questions fréquentes :}
   \begin{itemize}
   \item Comment choisir un gestionnaire de mots de passe ?
@@ -375,26 +396,18 @@
   \item Quel niveau de sécurité me convient ?
   \end{itemize}
   
-  \columnbreak
-  
-  \textbf{\color{c4dtblue}Ressources utiles :}
-  
-  \begin{center}
-  \qrcode[height=3cm]{https://gnugen.ch/fr/guides/}
-  
-  \textbf{Guide de survie numérique}
-  
-  \texttt{gnugen.ch/fr/guides/}
-  
-  \vspace{1em}
-  
-  \textbf{Contact :} 
-  Carine Dengler \\
-  Linus Gasser\\
-  Centre pour la Confiance Numérique
-  \end{center}
-  
-  \end{multicols}
+  \begin{minipage}[m]{0.7\linewidth}
+    \textbf{Contact :} 
+    Carine Dengler \\
+    Linus Gasser\\
+    Centre pour la Confiance Numérique
+  \end{minipage}%
+  \begin{minipage}[m]{0.3\linewidth}
+    \centering
+    \textbf{Guide de survie numérique}
+    \qrcode[height=3cm]{https://gnugen.ch/fr/guides/}
+    \small{gnugen.ch/fr/guides/}
+  \end{minipage}
 }
 
 \end{poster}
