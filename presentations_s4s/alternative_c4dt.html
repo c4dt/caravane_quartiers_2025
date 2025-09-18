@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        svg {
+            display: block;
+            width: 50%;
+            margin: auto;
+        }
+
+        .node {
+            fill: #3498db;
+            stroke: #2c3e50;
+            stroke-width: 2;
+        }
+
+        .node:hover {
+            fill: #2980b9;
+            cursor: pointer;
+        }
+
+        .line {
+            stroke: #34495e;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .label {
+            font-size: 16px;
+            font-weight: bold;
+            fill: #2c3e50;
+            text-anchor: middle;
+        }
+
+        .bias {
+            font-size: 24px;
+            font-weight: bold;
+            fill: #8c3e20;
+            text-anchor: middle;
+        }
+
+        .shrink-text {
+            display: none;
+            font-size: 48px;
+            font-weight: bold;
+            fill: #e74c3c;
+            text-anchor: middle;
+            transform-origin: center;
+        }
+
+        .shrink {
+            display: block;
+            animation: shrinkToPoint 4s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes shrinkToPoint {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+                <textarea data-template>
+
+            ## Services Alternatives I
+
+            - Linus Gasser, Centre pour la Confiance Numérique
+            - Pourquoi des services alternatives?
+            - Matrix et Mastodon
+            - Autres services
+
+            ---
+
+            ## Pourquoi utiliser des services non-mainstream?
+
+            - Confidentialité et Vie Privée
+            - Auto-gouvernance
+            - Mais c'est quoi? Et pourquoi c'est important?
+
+            --
+
+            ### Confidentialité et Vie Privée
+
+            - Quelle est votre définition?
+            - Pourquoi vous pensez que c'est important?
+
+            --
+
+            ### Confidentialité et Vie Privée
+
+            - En Anglais: Privacy
+                - Larousse: "Caractère d'une information confidentielle ; secret."
+                - Constitution Fédérale Suisse, [Art. 13](https://www.fedlex.admin.ch/eli/cc/1999/404/fr#art_13)
+            - Pour l'état: Présomption d'innocence, "ce qui n'est pas stocké ne peut pas être divulgé"
+            - Pour les entreprises: minimisation des données, pas de "growth at all costs"
+
+            --
+
+            ### Article 13 de la Constitution Fédérale Suisse
+
+            > Art. 13 Protection de la vie privée
+            >
+            > 1 Toute personne a droit au respect de sa vie privée et familiale, de son domicile, de sa correspondance et des relations qu’elle établit par la poste et les télécommunications.
+
+            --
+
+            ### Article 13 de la Constitution Fédérale Suisse
+
+            > Art. 13 Protection de la vie privée
+            >
+            > 2 Toute personne a le droit d’être protégée contre l’emploi abusif des données qui la concernent.
+
+            --
+
+            ### Auto-gouvernance
+
+            - Quelle est votre définition?
+            - Pourquoi vous pensez que c'est important?
+
+            --
+
+            ### Auto-gouvernance
+
+            - En Anglais: self governance
+                - Larousse: Être maître de sa vie, de ses sentiments, etc., les diriger, les mener à son gré
+            - Pour l'état: laisser une autonomie à ses citoyens
+            - Pour l'internet: décentralisation du pouvoir, fédération
+
+            --
+
+            ### Êtes-vous client ou produit?
+
+            <img style="height: 50vh" src="./assets/youre-the-product.jpg"/>
+
+            ---
+
+            ## Réseaux Sociaux et Messagerie
+
+            - Entre le marteau et l'enclume
+            - Quels outils pour s'en sortir?
+            - Services alternatives
+
+            --
+
+            ### Entre le marteau et l'enclume
+
+            - L'état veut appliquer ses lois et poursuivre "les terroristes"
+                - Restriction de services, collection de données généralisée
+            - Les entreprises veulent faire autant d'argent que possible
+                - Économie de l'attention: fil algorithmique avec messages irritants / rageants
+
+            --
+
+            ### Quels outils pour s'en sortir?
+
+            - Chiffrement bout-à-bout
+                - Les intermédiaires ne voient pas le contenu
+                - Attention aux "méta données"
+            - Fédération
+                - Des entités indépendantes qui communiquent
+
+            --
+
+            ### Chiffrement bout-à-bout
+
+            ```mermaid
+%%{init: { 'theme': 'dark', 'sequence': {'mirrorActors':false} } }%%
+sequenceDiagram
+  participant S as Source
+  participant Server
+  participant D as Destination
+  
+  Note over S,D: Chiffrement TLS
+  rect rgb(255, 230, 230)
+      S->>Server: 🔒 Message chiffré (TLS)
+      Note over Server: Serveur déchiffre message<br/>avec certificat TLS
+      Server->>D: 🔒 Message chiffré (TLS)
+  end
+  
+  Note over S,D: Chiffrement bout-à-bout
+  rect rgb(230, 255, 230)
+      S->>Server: 🔐 Message chiffré E2E<br/>(plus TLS)
+      Note over Server: Serveur ne peut pas déchiffrer<br/>le contenu E2E
+      Server->>D: 🔐 Message chiffré E2E<br/>(plus TLS)
+  end
+            ```
+
+            --
+
+            ### Fédération - <br> Décentralisation de responsabilités
+
+<div style="display: flex; width: 100%; height: 40vh; border: 1px solid red;">
+  <div style="flex: 1;">
+
+```mermaid
+%%{init: { 'theme': 'dark'}}%%
+architecture-beta
+    group centralized(cloud)[Centralized]
+
+        service Center1(server)[Center1] in centralized
+        service Center2(server)[Center2] in centralized
+        service Center3(server)[Center3] in centralized
+        service Center4(server)[Center4] in centralized
+
+        Center1:R -- L:Center2
+        Center3:R -- L:Center4
+        Center1:B -- T:Center3
+        Center2:B -- T:Center4
+        Center1:R -- L:Center4
+        Center3:R -- L:Center2
+```
+
+</div>
+<div style="flex: 1; height: 100%;">
+
+```mermaid
+%%{init: {"theme": "dark"}}%%
+architecture-beta
+    group federated(cloud)[Federated]
+
+        service Fedi1(server)[Fedi1] in federated
+        service Fedi2(server)[Fedi2] in federated
+        service Fedi3(server)[Fedi3] in federated
+        service Fedi4(server)[Fedi4] in federated
+
+        Fedi1:R -- L:Fedi2
+        Fedi1:B -- T:Fedi3
+        Fedi1:R -- L:Fedi4
+        Fedi3:L -- R:Fedi2
+```
+
+</div>
+</div>
+
+            --
+
+            ### Réseau social alternative Mastodon
+
+            - https://social.epfl.ch
+            - Fédération entre serveurs
+            - Divers serveurs existent, selon le thème
+            - Autres versions pour images, vidéos, etc.
+            - Moins de personnes, moins de messages "engageants"
+
+            --
+
+            ### Messagerie chiffré bout-à-bout
+
+            - https://matrix.epfl.ch
+            - Aussi fédéré - divers serveurs existent et communiquent entre eux
+            - Messages chiffré, pas seulement la lien internet
+            - Toujours difficile avec les clés privées
+
+            --
+
+            ### Autres Références
+
+            <img src="./assets/social_dilemma.png" style="float: left; height: 20vh;"/>
+            <img src="./assets/jaron_lanier.png" style="float: right; height: 20vh;"/>
+            
+            - [The social dilemma](https://en.wikipedia.org/wiki/The_Social_Dilemma) 
+                - film par Netflix
+                - décrit l'influence des flux algorithmiques
+            - [Jaron Lanier](https://www.jaronlanier.com/) 
+                - "Ten arguments for deleting your social media account RIGHT NOW"
+                - Il n'a effectivement pas de compte sur les réseaux sociaux
+
+            ---
+            
+            ## Autres Services
+
+            - "Stochastic Parrots" (LLMs)
+            - Gestion de projets
+            - Éditeurs
+
+            --
+
+            ### Stochastic Parrots (LLMs)
+
+            - Problèmes:
+                - Toutes les données sont envoyées et stockés sur les serveurs
+                - Biais, restriction d'utilisation
+            - Solutions:
+                - Services alternatives
+                - Utilisation locale
+
+            --
+
+            ### Liens pour LLMs alternatives
+
+            - Sur internet:
+                - [Duck.ai](https://duck.ai)
+                - [Lumo (Proton)](https://lumo.proton.me)
+            - Localement:
+                - [LM Studio](https://lmstudio.ai/) 
+                - [Ollama](https://ollama.com/)
+
+            --
+
+            ### Gestion de projets
+              
+            - Alternatives pour github - aussi en "self hosted"
+            - https://gitlab.epfl.ch pour projets EPFL, ou https://gitlab.com
+            - https://codeberg.org/
+            - https://about.gitea.com/
+
+            --
+
+            ### Éditeurs
+
+            - Basé sur une interface graphique:
+                - [Zed](https://zed.dev/) 
+                - [IntelliJ](https://www.jetbrains.com/) 
+                - [VSCode](https://code.visualstudio.com/)
+                - [XEmacs](https://www.xemacs.org/) 
+            - Ligne de commande:
+                - [NeoVim](https://neovim.io/)
+
+            ---
+
+            ## Installation
+
+            - Discussion avec matrix.epfl.ch
+            - Réseau social avec social.epfl.ch - phanpy
+
+            --
+
+            ### Matrix.epfl.ch
+
+            - Matrix est un _protocole_
+            - _Element_ utilise matrix pour la communication
+            - Installation d'un client sur l'ordinateur
+            - _Sauvegarder_ la phrase de clé
+
+            --
+
+            ### Matrix.epfl.ch installation
+
+            - Application bureau est préférable sur navigateur
+            - Télécharger depuis https://element.io/download
+              - Ou alors aller sur https://matrix.epfl.ch
+            - Homeserver -> matrix.epfl.ch
+            - Nom d'utilisateur et mot de passe EPFL
+
+            --
+
+            ### Joindre une salle
+
+            - Cliquer sur "+" à côté des "Rooms"
+            - Choisir "Explore public rooms"
+            - Chercher "vie"
+            - Choisir "vie numérique"
+            - Écrire message de bienvenu
+
+            --
+
+            ### Recovery Key
+
+            - Sécurité bout-à-bout: pas de récupération possible!
+              - Récupération sociale serait idéale, mais n'existe pas...
+            - Aller dans "All Settings" -> "Encryption (clé)" -> "Recovery"
+            - Copier la clé de sécurité dans un endroit sécure, comme 1password
+
+            --
+
+            ### Social.epfl.ch
+
+            - Service mis à disposition par l'EPFL
+            - Similaire à X/Twitter
+            - Plus grande différence:
+              - Moins de gens - moins de contenu
+              - Pas de flux algorithmique - faut suivre des comptes!
+
+            --
+
+            ### Social.epfl.ch - installation
+
+            - Aller sur https://social.epfl.ch
+            - Entrez vos identifications EPFL
+            - Fil public local / Fil fédéré
+            - Cliquer sur nom, puis "Suivre"
+            - Utiliser un des "starter packs": 
+              - [Fedidevs](https://fedidevs.com/starter-packs/?q=security&order_by=popular_day) [Mastodon Pack](https://mastodonmigration.wordpress.com/2024/11/20/mastodon-follow-pack-directory-nov-20-2024/)
+            - Différence entre "Favori" (auteur) et "Partager" (followers)
+
+            --
+
+            ### Autre interface utilisateur
+
+            - Mon préféré: https://phanpy.social
+            - Même compte que social.epfl.ch
+            - Résout le problème de "Doctorow Threads" (longs fils de discussion)
+            - Différencie les posts des re-toots
+
+          </textarea>
+            </section>
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/mermaid/mermaid.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            mermaid: {
+                format: "svg",
+            },
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid]
+        });
+
+        function shrink() {
+            var els = document.getElementsByClassName("shrink-text");
+            console.dir(els);
+            for (let el of els) {
+                el.classList.remove("shrink");
+            };
+            setTimeout(() => {
+                for (let el of els) {
+                    el.classList.add("shrink");
+                };
+            }, 100);
+        }
+    </script>
+</body>
+
+</html>

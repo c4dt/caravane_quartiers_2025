@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "packages": {
+    "texliveTeTeX": "latest",
+    "texlivePackages.adjustbox": {
+      "version": "latest",
+      "outputs": ["tex"],
+    },
+    "texlivePackages.qrcode": {
+      "version": "latest",
+      "outputs": ["tex"],
+    },
+    "texlivePackages.fontawesome5": {
+      "version": "latest",
+      "outputs": ["tex"],
+    },
+  },
+  "init": {
+  },
+  "shell": {
+    "init_hook": [
+      "for a in adjustbox qrcode fontawesome5; do TEXINPUTS=\"$TEXINPUTS:$PWD/.devbox/nix/profile/default/tex/latex/$a\"; done; export TEXINPUTS; echo $TEXINPUTS"
+    ],
+    "scripts": {
+      "pdflatex": [
+        "latex main.tex",
+        "bibtex main",
+        "latex main.tex",
+        "pdflatex main.tex",
+        "echo '\n\n*** Now you can open main.pdf\n\n'",
+      ],
+    },
+  },
+  "env": {
+  },
+}

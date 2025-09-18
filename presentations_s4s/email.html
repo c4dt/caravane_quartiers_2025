@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+          <textarea data-template>
+            ## E-Mail
+
+            --
+
+            ## En quelques chiffres
+
+            - premier e-mail a été envoyé en **1971**
+            - en décembre 2024, **251 millions** d'e-mails ont été envoyé - par minute !
+            - en 2024, **361,6 milliards** e-mails ont été envoyé chaque jour
+            - ⚠️ dont **3,4 milliards** d'e-mails de phishing ⚠️
+
+            --
+
+            ## En quelques chiffres (2)
+
+            - le terme "phishing" date de **1987**
+            - en **mai 2000**, le grand public est introduit au phishing avec le ver informatique "I love you"
+            - le rançongiciel apparaît en **2013**
+
+            --
+
+            ## Qu'est-ce que c'est un e-mail ?
+
+            - c'est pas "e-mail", c'est "internet message" 😉
+            - contient deux parties, un "header" et un "body"
+
+            --
+
+            ## E-Mail header
+
+            - que deux champs qui sont obligatoires, "Date:" et "From:" (et potentiellement, "Sender:")
+            - ⚠️ "From:" n'indique pas nécessairement le·la véritable expéditeur·rice ⚠️
+            - en réalité beaucoup plus de champs
+
+            --
+
+            ## E-mail header (2)
+
+            ```
+            Authentication-Results: spf=pass (sender IP is 2a03:4000:6:b057::5)
+             smtp.mailfrom=carine-dengler.de; dkim=none (message not signed)
+             header.d=none;dmarc=bestguesspass action=none
+             header.from=carine-dengler.de;compauth=pass reason=109
+            Received-SPF: Pass (protection.outlook.com: domain of carine-dengler.de
+             designates 2a03:4000:6:b057::5 as permitted sender)
+             receiver=protection.outlook.com; client-ip=2a03:4000:6:b057::5;
+             helo=mail.herbstmail.de; pr=C
+            Received: from mail.herbstmail.de (2a03:4000:6:b057::5) by
+             DU6PEPF0000A7DD.mail.protection.outlook.com (2603:10a6:18:3::85) with
+             Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
+             15.20.9031.11 via Frontend Transport; Thu, 14 Aug 2025 14:07:07 +0000
+            Received: from [127.0.0.1] (unknown [178.197.199.48])
+             by mail.herbstmail.de (Postfix) with ESMTPSA id 9534130015E
+             for <carine.dengler@epfl.ch>; Thu, 14 Aug 2025 16:07:06 +0200 (CEST)
+            Date: Thu, 14 Aug 2025 16:07:04 +0200
+            From: epfl@carine-dengler.de
+            To: <carine.dengler@epfl.ch>
+            Subject: =?UTF-8?Q?E-Mail_de_moi_a=CC=80_moi?=
+            Message-ID: <2A0B3FB2-1482-451D-AB00-236CA7EBD265@carine-dengler.de>
+            ```
+
+            --
+
+            ## E-mail body
+
+            - texte en clair ou HTML
+            - e-mails en HTML contiennent aussi version auto-générée texte en clair
+            - HTML est le de facto standard aujourd'hui
+            - ⚠️ mêmes soucis de securité/protection de vie privée que les sites web ⚠️
+
+            --
+
+            ## E-mail body (2)
+
+            ```
+            ------GBII5DRJRIWQK2ELFH06ZK2P1M0E4W
+            Content-Type: text/plain; charset="utf-8"
+            Content-Transfer-Encoding: quoted-printable
+
+            Blahblah
+            ------GBII5DRJRIWQK2ELFH06ZK2P1M0E4W
+            Content-Type: text/html; charset="utf-8"
+            Content-Transfer-Encoding: quoted-printable
+
+            <!DOCTYPE html><html>
+            <head>
+            <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"></=
+            head>
+            <body><div dir=3D"auto">Blahblah</div></body></html>=
+
+            ------GBII5DRJRIWQK2ELFH06ZK2P1M0E4W--
+            ```
+
+            --
+
+            ## Comment ça se transporte
+            <!-- use image here -->
+            - "message user agent" (MUA) ou client e-mail
+            - "message submission agent" (MSA); reçoit les messages à envoyer du client e-mail
+            - "message transfer agent" (MTA); transporte les messages à travers le réseau
+            - "message delivery agent" (MDU); reçoit les messages d'un MTA et les stocke dans la boîte mail de l'utilisateur·rice
+
+            --
+
+            ![Email](img/Email.png)
+
+            --
+
+            ## Comment ça se transporte (2)
+            - Simple Mail Transfer Protocol (SMTP)
+                - client e-mail (-> MSA) -> MTA (-> MTA) -> MDA
+            - Post Office Protocol (POP3) et Internet Message Access Protocol (IMAP)
+                - MDA -> client e-mail
+                - POP3 est en général un protocol plus simple
+                - [comparaison entre POP3 et IMAP](https://en.wikipedia.org/wiki/Post_Office_Protocol#Comparison_with_IMAP)
+
+            --
+
+            ## Et la sécurité ?
+
+            - "encryption in transit"
+            - les e-mails sont chiffrés lors du transport, mais stockés en clair
+            - différentes solutions (STARTTLS, DANE for SMTP, SMTP MTA Strict Transport Security)
+            - "downgrade" attaques sont possibles
+
+            --
+
+            ## Et la sécurité ? (2)
+
+            - "encryption at rest"
+            - les e-mails sont stockés chiffrés sur le serveur du provider
+            - dépend du provider
+            - en général pas le cas
+            - seulement fiable si le provider n'a pas accès à la clé
+
+            --
+
+            ## Et la sécurité ? (3)
+
+            - chiffrer les e-mails soi-même
+            - "encryption in transit" et "encryption at rest"
+                - "downgrade" attaques sont pas possibles
+                - la clé reste chez vous
+            - par contre, en réalité souvent pas pratique
+                - important effet réseau
+                - pas évident à mettre en place
+
+            --
+
+            ## Quelques tuyaux
+
+            - une adresse e-mail se lit de **droite à gauche**
+                - carine.dengler@epfl.ch -> adresse EPFL
+                - epfl@carine-dengler.de -> adresse privée
+            - pas se fier au champ "From:"
+            - jamais répondre à un e-mail de phishing
+            - en cas de doute, pas réagir dans l'immédiat
+
+            --
+
+            ## Installation Thunderbird
+
+            ![Download](img/Thunderbird.png)
+
+            https://www.thunderbird.net/fr/thunderbird/all/
+
+            --
+
+            ## Références
+
+            - https://web.archive.org/web/20060506003539/https://openmap.bbn.com/~tomlinso/ray/firstemailframe.html
+            - https://www.statista.com/statistics/195140/new-user-generated-content-uploaded-by-users-per-minute/
+            - https://www.demandsage.com/how-many-emails-are-sent-per-day/
+            - https://aag-it.com/the-latest-phishing-statistics/
+            - https://fr.wikipedia.org/wiki/I_love_you_(ver_informatique)
+
+            --
+
+            ## Références (2)
+
+            - https://en.wikipedia.org/wiki/Email
+            - https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol#Security_extensions
+            - https://www.rfc-editor.org/rfc/rfc5322
+            - https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2023/m02/security-history-the-evolution-of-phishing.html
+
+          </textarea>
+        </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
+

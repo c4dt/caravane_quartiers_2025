@@ -1,0 +1,285 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2025-09-02T13:16:47Z",
+      "resolved": "github:NixOS/nixpkgs/aaff8c16d7fc04991cac6245bee1baa31f72b1e1?lastModified=1756819007&narHash=sha256-12V64nKG%2FO%2FguxSYnr5%2Fnq1EfqwJCdD2%2BcIGmhz3nrE%3D"
+    },
+    "texlivePackages.adjustbox@latest": {
+      "last_modified": "2025-07-28T17:09:23Z",
+      "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#texlivePackages.adjustbox",
+      "source": "devbox-search",
+      "version": "1.3c",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/zajw4f8gg3nygbhd1kpmy5y98fmxa9xm-adjustbox-1.3c-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/1ipjd540jc193mg6mcvwlcazlxi0i2lw-adjustbox-1.3c-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/zajw4f8gg3nygbhd1kpmy5y98fmxa9xm-adjustbox-1.3c-tex"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/hsijy2gs92ykqa0rpgjhsg80c5pbkm67-adjustbox-1.3c-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/4cb7qfai0qs95i4nf4hdsm9whz23wymc-adjustbox-1.3c-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/hsijy2gs92ykqa0rpgjhsg80c5pbkm67-adjustbox-1.3c-tex"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/dip2mgkq6a040d3znv8qggf9i2nplws4-adjustbox-1.3c-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/yhda2v89f5qdabqjmhlml7h39n59p06g-adjustbox-1.3c-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/dip2mgkq6a040d3znv8qggf9i2nplws4-adjustbox-1.3c-tex"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/0xcysk2macwpv77zcnv26gdvqlbqagj6-adjustbox-1.3c-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/367flbywkfdir1pzybpxrn99rhpblk3l-adjustbox-1.3c-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/0xcysk2macwpv77zcnv26gdvqlbqagj6-adjustbox-1.3c-tex"
+        }
+      }
+    },
+    "texlivePackages.fontawesome5@latest": {
+      "last_modified": "2025-07-28T17:09:23Z",
+      "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#texlivePackages.fontawesome5",
+      "source": "devbox-search",
+      "version": "5.15.4",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/924dr636b7v9gr5552f6gahaislppzcz-fontawesome5-5.15.4-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/m8wadfg2xs3gpfvs4p8nd8lwsn7yzz61-fontawesome5-5.15.4-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/924dr636b7v9gr5552f6gahaislppzcz-fontawesome5-5.15.4-tex"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/v8fa87d4crwf8mcgijvq7n0axl8m1yx9-fontawesome5-5.15.4-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/6bw9rwp14kg7dhdyzycy5j3s1237j1nf-fontawesome5-5.15.4-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/v8fa87d4crwf8mcgijvq7n0axl8m1yx9-fontawesome5-5.15.4-tex"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/spqiyjyp537vqgbxn08hlsx2jkpsjxx4-fontawesome5-5.15.4-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/dizq147m5a164076587dqx36chyh1r3v-fontawesome5-5.15.4-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/spqiyjyp537vqgbxn08hlsx2jkpsjxx4-fontawesome5-5.15.4-tex"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/xblacw8mq2il3qkgwbbkd5amr86g8wfs-fontawesome5-5.15.4-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/y1rk1iax4lpwkjwkyrmaa9iz34nmwqgd-fontawesome5-5.15.4-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/xblacw8mq2il3qkgwbbkd5amr86g8wfs-fontawesome5-5.15.4-tex"
+        }
+      }
+    },
+    "texlivePackages.qrcode@latest": {
+      "last_modified": "2025-07-28T17:09:23Z",
+      "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#texlivePackages.qrcode",
+      "source": "devbox-search",
+      "version": "1.51",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/912nj77nyin74wbk7fd8mvy0pf62iwc6-qrcode-1.51-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/6bykq8dk4qxp1ssy438jsi2k4hbzs79n-qrcode-1.51-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/912nj77nyin74wbk7fd8mvy0pf62iwc6-qrcode-1.51-tex"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/nbz3gs4h83g0rbsj4alb4zwrfar9mr5y-qrcode-1.51-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/g682ajjyn5jpkzya96hp2h7wwr0ygjdf-qrcode-1.51-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/nbz3gs4h83g0rbsj4alb4zwrfar9mr5y-qrcode-1.51-tex"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/zgqbaa4jx0rj2fnhgabgwgi79kjxsz0m-qrcode-1.51-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/xyadmk5b7q9sc62d494vmqgyb8nsbimp-qrcode-1.51-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/zgqbaa4jx0rj2fnhgabgwgi79kjxsz0m-qrcode-1.51-tex"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "tex",
+              "path": "/nix/store/yypl9ph4l1wgphhi0nmwlxz1j6mjpifi-qrcode-1.51-tex",
+              "default": true
+            },
+            {
+              "name": "texdoc",
+              "path": "/nix/store/xy4rir7vx0kqzrygjxfjkiwgfzxz3hjx-qrcode-1.51-texdoc"
+            }
+          ],
+          "store_path": "/nix/store/yypl9ph4l1wgphhi0nmwlxz1j6mjpifi-qrcode-1.51-tex"
+        }
+      }
+    },
+    "texliveTeTeX@latest": {
+      "last_modified": "2025-07-28T17:09:23Z",
+      "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#texliveTeTeX",
+      "source": "devbox-search",
+      "version": "2025-env",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ylr59mmnqnvixs316ykfah2xjwbg8aky-texlive-2025-env",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/qxq0g0cvbbvx2jwgi8m5b5lw374g54sg-texlive-2025-env-man",
+              "default": true
+            },
+            {
+              "name": "info",
+              "path": "/nix/store/m3q55bki195as0y728ly34bh89wyw9h4-texlive-2025-env-info"
+            }
+          ],
+          "store_path": "/nix/store/ylr59mmnqnvixs316ykfah2xjwbg8aky-texlive-2025-env"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/7avl8v8qd19njdcsn0pilblvkh9q9nf8-texlive-2025-env",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/byyg9zrkw30hn1k4gyahwcvg1hld1fb7-texlive-2025-env-man",
+              "default": true
+            },
+            {
+              "name": "info",
+              "path": "/nix/store/n2dxklhz00yrpzjmljhch6q1qjp73fn9-texlive-2025-env-info"
+            }
+          ],
+          "store_path": "/nix/store/7avl8v8qd19njdcsn0pilblvkh9q9nf8-texlive-2025-env"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gvm4qlvvxhks75bigmwqqfjm56wngq1k-texlive-2025-env",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/h940yp7sdacd5vddl2zxc43csr4076zx-texlive-2025-env-man",
+              "default": true
+            },
+            {
+              "name": "info",
+              "path": "/nix/store/5dg1ma1ynr0jqr6flyzv3j3f9afxz3cy-texlive-2025-env-info"
+            }
+          ],
+          "store_path": "/nix/store/gvm4qlvvxhks75bigmwqqfjm56wngq1k-texlive-2025-env"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/llzg0252zbsspbghqziifv40hps214ig-texlive-2025-env",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/dhi75rcwdqpmp55519kyg0ix5v2awq1p-texlive-2025-env-man",
+              "default": true
+            },
+            {
+              "name": "info",
+              "path": "/nix/store/nrgyd267rw23y05i7q8sjpxsa6ir28br-texlive-2025-env-info"
+            }
+          ],
+          "store_path": "/nix/store/llzg0252zbsspbghqziifv40hps214ig-texlive-2025-env"
+        }
+      }
+    }
+  }
+}
