@@ -4,18 +4,16 @@
     "texliveTeTeX": "latest",
     "texlivePackages.adjustbox": {
       "version": "latest",
-      "outputs": ["tex"],
+      "outputs": ["tex"]
     },
     "texlivePackages.qrcode": {
       "version": "latest",
-      "outputs": ["tex"],
+      "outputs": ["tex"]
     },
     "texlivePackages.fontawesome5": {
       "version": "latest",
-      "outputs": ["tex"],
-    },
-  },
-  "init": {
+      "outputs": ["tex"]
+    }
   },
   "shell": {
     "init_hook": [
@@ -23,14 +21,11 @@
     ],
     "scripts": {
       "pdflatex": [
-        "latex main.tex",
-        "bibtex main",
-        "latex main.tex",
-        "pdflatex main.tex",
-        "echo '\n\n*** Now you can open main.pdf\n\n'",
-      ],
-    },
+        "pdflatex poster.tex",
+        "echo '\n\n*** Now you can open poster.pdf\n\n'"
+      ]
+    }
   },
   "env": {
-  },
+  }
 }
