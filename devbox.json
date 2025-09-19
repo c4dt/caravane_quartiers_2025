@@ -21,6 +21,8 @@
     ],
     "scripts": {
       "pdflatex": [
+	"echo Need to run pdflatex twice to get poster.aux right...",
+        "pdflatex poster.tex",
         "pdflatex poster.tex",
         "echo '\n\n*** Now you can open poster.pdf\n\n'"
       ]
