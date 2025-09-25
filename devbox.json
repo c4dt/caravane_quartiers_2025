@@ -6,6 +6,14 @@
       "version": "latest",
       "outputs": ["tex"]
     },
+    "texlivePackages.xmpincl": {
+      "version": "latest",
+      "outputs": ["tex"]
+    },
+    "texlivePackages.pdfx": {
+      "version": "latest",
+      "outputs": ["tex"]
+    },
     "texlivePackages.qrcode": {
       "version": "latest",
       "outputs": ["tex"]
@@ -17,7 +25,7 @@
   },
   "shell": {
     "init_hook": [
-      "for a in adjustbox qrcode fontawesome5; do TEXINPUTS=\"$TEXINPUTS:$PWD/.devbox/nix/profile/default/tex/latex/$a\"; done; export TEXINPUTS; echo $TEXINPUTS"
+      "for a in adjustbox qrcode fontawesome5 xmpincl pdfx; do TEXINPUTS=\"$TEXINPUTS:$PWD/.devbox/nix/profile/default/tex/latex/$a\"; done; export TEXINPUTS; echo $TEXINPUTS"
     ],
     "scripts": {
       "pdflatex": [

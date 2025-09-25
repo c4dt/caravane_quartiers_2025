@@ -12,6 +12,7 @@
 \usepackage{qrcode}
 % \usepackage{fontawesome5} % Removed due to compatibility issues
 \usepackage{lmodern}
+\usepackage[a-1b]{pdfx}
 
 % Configuration des couleurs
 \definecolor{c4dtblue}{RGB}{0,102,179}
@@ -116,9 +117,10 @@
   \item \textbf{C4DT} - Centre pour la Confiance Numérique
   \item \textbf{gnugen} - Promotion du logiciel libre à l'EPFL
   \item \textbf{digiges} - Partenaire pour la transition numérique
+  \item \textbf{HEIG/VD} - Haute école d'ingénierie et de gestion
   \end{itemize}
 
-  \vspace{2em}
+  \vspace{1em}
 
   \textbf{\color{c4dtblue}Quelques questions pour commencer :}
   \begin{itemize}
@@ -128,19 +130,29 @@
   \item Pouvez-vous m'aider à installer une application sécurisée ?
   \end{itemize}
 
-  \vspace{2em}
+  \vspace{1em}
 
-  \begin{minipage}{0.7\linewidth}
-    \textbf{Contact :} \\
-    Carine Dengler \\
-    Linus Gasser \\
-    Centre pour la Confiance Numérique
+  \begin{minipage}[t]{0.7\linewidth}
+    \textbf{Contacts :} \\
+    \vspace{2em}
+    \small
+    \begin{tabular}{ll}
+    \\
+    C4DT & Carine Dengler (@cdengler@social.epfl.ch) \\
+         & Linus Gasser (@ligasser@social.epfl.ch) \\
+    GnuGen & Nils Antonovich (@antonovi:gnugen.ch) \\
+         & Yaëlle Dutoit (@ydutoit:gnugen.ch) \\
+         & Jonas Sulzer (@jonas:violoncello.ch) \\
+    DigiGes & https://digitale-gesellschaft.ch \\
+    HEIG/VD & Alexis Pinto \\
+    \end{tabular}%
   \end{minipage}%
-  \begin{minipage}{0.3\linewidth}
-    \centering
-    \textbf{Guide de survie numérique}
-    \qrcode[height=3cm]{https://gnugen.ch/fr/guides/}
-    \small{gnugen.ch/fr/guides/}
+  \begin{minipage}[t]{0.28\linewidth}
+    \begin{flushright}
+    \textbf{Guide de survie numérique} \\
+    \qrcode[height=2.5cm]{https://gnugen.ch/fr/guides/}
+    \footnotesize{gnugen.ch/fr/guides/}
+    \end{flushright}
   \end{minipage}
 }
 
@@ -253,7 +265,7 @@
   \end{minipage}%
 }
 
-\headerbox{Sécurité}{name=security,column=1,below=office,headerColorOne=darkgreen,headerColorTwo=darkblue}{
+\headerbox{Sécurité}{name=security,column=1,below=office,height=bottom,headerColorOne=darkgreen,headerColorTwo=darkblue}{
   \begin{minipage}{0.7\linewidth}
     \textbf{\color{c4dtblue}Gestion de mots de passe}
     \begin{itemize}
