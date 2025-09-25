@@ -3,46 +3,48 @@ name: Build PDF and Release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
     permissions: write-all
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      
-    - name: Install devbox
-      uses: jetify-com/devbox-install-action@v0.12.0
-      with:
-        enable-cache: true
-        
-    - name: Build PDF
-      run: devbox run pdflatex
-      
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref_name }}
-        release_name: Caravane des Quartiers - ${{ github.ref_name }}
-        draft: false
-        prerelease: false
-        body: |
-          Automated release of the Caravane des Quartiers poster.
-          
-          Triggered by git tag: ${{ github.ref_name }}
-          
-    - name: Upload PDF Asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./poster.pdf
-        asset_name: caravane-des-quartiers.pdf
-        asset_content_type: application/pdf
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install devbox
+        uses: jetify-com/devbox-install-action@v0.12.0
+        with:
+          enable-cache: true
+
+      - name: Build poster PDF
+        run: devbox run poster
+
+      - name: Build handout PDF
+        run: devbox run handout
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Caravane des Quartiers - ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          body: |
+            Automated release of the Caravane des Quartiers poster.
+
+            Triggered by git tag: ${{ github.ref_name }}
+
+      - name: Upload PDF Asset
+        uses: alexellis/upload-assets@0.4.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          asset_paths: '["./poster.pdf", "./handout.pdf"]'
+          asset_names: caravane-des-quartiers.pdf, caravane-des-quartiers-handout.pdf
+          asset_content_type: application/pdf
