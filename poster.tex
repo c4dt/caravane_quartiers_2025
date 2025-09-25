@@ -9,7 +9,7 @@
 \usepackage{tikz}
 \usepackage{multicol}
 \usepackage{adjustbox}
-\usepackage{qrcode}
+\usepackage[nolinks]{qrcode}
 % \usepackage{fontawesome5} % Removed due to compatibility issues
 \usepackage{lmodern}
 \usepackage[a-1b]{pdfx}
@@ -22,6 +22,8 @@
 \definecolor{lightgray}{RGB}{240,240,240}
 \definecolor{darkgreen}{RGB}{160, 200, 160}
 \definecolor{darkblue}{RGB}{90, 180, 200}
+\definecolor{redstart}{RGB}{200, 160, 160}
+\definecolor{redend}{RGB}{160, 160, 200}
 
 %%  - \tiny < \scriptsize < \footnotesize < \small < \normalsize < \large < \Large < \LARGE < \huge < \Huge < \HUGE
 
@@ -86,7 +88,7 @@
 }
 
 \headerbox{\huge Les enjeux}{name=stats,column=0,below=intro}{
-  \textbf{\color{red}\Large E-mail :}
+  \textbf{\color{c4dtblue}\Large E-mail :}
   \begin{itemize}
   \item{ 251 millions d'emails/minute}
   \item{ \textbf{3,4 milliards} d'emails de phishing quotidiens}
@@ -94,7 +96,7 @@
 
   \vspace{1em}
 
-  \textbf{\color{red}\Large Surveillance :}
+  \textbf{\color{c4dtblue}\Large Surveillance :}
   \begin{itemize}
   \item{ Profilage comportemental}
   \item{ Données vendues aux gouvernements}
@@ -103,7 +105,7 @@
 
   \vspace{1em}
 
-  \textbf{\color{red}\Large Monopolisation :}
+  \textbf{\color{c4dtblue}\Large Monopolisation :}
   \begin{itemize}
   \item{ Concentration du pouvoir}
   \item{ Contrôle de l'information}
@@ -111,8 +113,8 @@
   \end{itemize}
 }
 
-\headerbox{Venez discuter avec nous !}{name=stats,column=0,below=stats,height=bottom}{
-  \textbf{\color{c4dtblue}Qui sommes-nous ?}
+\headerbox{Venez discuter avec nous !}{name=stats,column=0,below=stats,height=bottom,headerColorOne=redstart,headerColorTwo=redend}{
+  \textbf{\color{red}Qui sommes-nous ?}
   \begin{itemize}
   \item \textbf{C4DT} - Centre pour la Confiance Numérique
   \item \textbf{gnugen} - Promotion du logiciel libre à l'EPFL
@@ -122,7 +124,7 @@
 
   \vspace{1em}
 
-  \textbf{\color{c4dtblue}Quelques questions pour commencer :}
+  \textbf{\color{red}Quelques questions pour commencer :}
   \begin{itemize}
   \item Qui s'intéresse à mes données? Je n'ai rien à cacher.
   \item Comment choisir entre sécurité et confort ?
@@ -133,7 +135,7 @@
   \vspace{1em}
 
   \begin{minipage}[t]{0.7\linewidth}
-    \textbf{Contacts :} \\
+    \textbf{\color{red}Contacts :} \\
     \vspace{2em}
     \small
     \begin{tabular}{ll}
