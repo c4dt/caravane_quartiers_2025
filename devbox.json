@@ -28,14 +28,17 @@
       "for a in adjustbox qrcode fontawesome5 xmpincl pdfx; do TEXINPUTS=\"$TEXINPUTS:$PWD/.devbox/nix/profile/default/tex/latex/$a\"; done; export TEXINPUTS; echo $TEXINPUTS"
     ],
     "scripts": {
-      "pdflatex": [
-	"echo Need to run pdflatex twice to get poster.aux right...",
+      "handout": [
+        "pdflatex handout.tex",
+        "pdflatex handout.tex",
+        "echo '\n\n*** Now you can open handout.pdf\n\n'"
+      ],
+      "poster": [
         "pdflatex poster.tex",
         "pdflatex poster.tex",
         "echo '\n\n*** Now you can open poster.pdf\n\n'"
       ]
     }
   },
-  "env": {
-  }
+  "env": {}
 }

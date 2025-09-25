@@ -1,4 +1,4 @@
-\documentclass[a0paper,portrait]{baposter}
+\documentclass[a0paper,portrait,fontscale=0.22]{baposter}
 
 % Packages nécessaires
 \usepackage[utf8]{inputenc}
@@ -29,11 +29,13 @@
 
 % Configuration du poster
 \begin{document}
-\newcommand{\qrcodeheight}{0.685}
+\newcommand{\qrcodeheight}{0.5}
 \include{blocks}
+
+\newcommand{\posterHeader}{
 \begin{poster}{
   % Options du poster
-  columns=2,
+  columns=1,
   colspacing=1em,
   bgColorOne=white,
   bgColorTwo=white,
@@ -54,45 +56,47 @@
   linewidth=2pt
 }{
 \begin{minipage}{5cm}
-\includegraphics[height=6em]{assets/logos/C4DT_logo.png}%
+\includegraphics[height=5em]{assets/logos/C4DT_logo.png}%
 \end{minipage}
 }
 {Confiance Numérique}
-{Comment préserver votre vie privée sur internet}
+{Préservez voter vie privée}
 {
 \begin{minipage}{5cm}
-\includegraphics[width=5cm]{assets/logos/gnugen_logo.png} \\
-\includegraphics[width=5cm]{assets/logos/digiges_logo.png}
+\includegraphics[width=4cm]{assets/logos/gnugen_logo.png} \\
+\includegraphics[width=4cm]{assets/logos/digiges_logo.png}
 \end{minipage}
 }
+}
+
+\posterHeader
 
 % Contenu principal du poster
 \headerbox{Êtes-vous client ou produit ?}{name=intro,column=0,row=0}{
-\blockIntro
+\blockIntroShort
 }
 
-\headerbox{\huge Les enjeux}{name=stats,column=0,below=intro}{
-\blockStats
-}
-
-\headerbox{Venez discuter avec nous !}{name=discussion,column=0,below=stats,height=bottom,headerColorOne=redstart,headerColorTwo=redend}{
-\blockDiscussion
-}
-
-%
-% Second Column
-%
-
-\headerbox{Communications en Ligne}{name=communication,column=1,row=0,headerColorOne=darkgreen,headerColorTwo=darkblue}{
+\headerbox{Communications en Ligne}{name=communication,column=0,below=intro,height=bottom,headerColorOne=darkgreen,headerColorTwo=darkblue}{
 \blockCommunication
 }
+\end{poster}
 
-\headerbox{Bureautique}{name=office,column=1,below=communication,headerColorOne=darkgreen,headerColorTwo=darkblue}{
+\clearpage
+
+\posterHeader
+
+\newcommand{\padding}{\vspace{0.5em}}
+
+\headerbox{Bureautique}{name=office,column=0,row=0,headerColorOne=darkgreen,headerColorTwo=darkblue}{
+\padding
 \blockOffice
+\padding
 }
 
-\headerbox{Sécurité}{name=security,column=1,below=office,height=bottom,headerColorOne=darkgreen,headerColorTwo=darkblue}{
+\headerbox{Sécurité}{name=security,column=0,below=office,height=bottom,headerColorOne=darkgreen,headerColorTwo=darkblue}{
+\padding
 \blockSecurity
+\padding
 }
 
 \end{poster}
